@@ -141,19 +141,20 @@ body {
     padding: 8px;
     color: var(--white);
     border-radius: var(--border-radius);
-    font-size: var(--text);
+    font-size: 15px;
+    font-weight: 200;
     transition: var(--transition); 
     position: relative; 
 }
 
 
-.menu .list-container .lists li a.active {
-   /*  background: linear-gradient(45deg, var(--violet), var(--green)); */
+/* .menu .list-container .lists li a.active {
+    background: linear-gradient(45deg, var(--violet), var(--green)); 
     color: var(--white);
-}
+} */
 
 .menu .list-container .lists li a:hover {
-    background: var(--violet);
+    background: linear-gradient(45deg, var(--violet), var(--green));
     color: var(--white);
 }
 
