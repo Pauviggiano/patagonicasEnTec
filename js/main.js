@@ -1,4 +1,4 @@
-/* 
+
 
 const btnMenu = document.querySelector('.btn-menu');
 const menu = document.querySelector('.list-container');
@@ -100,11 +100,11 @@ quienesSomos.addEventListener('click', () => {
     
 });
 
- */
+ 
 
 //Fragmento que me dio Claudi
 
-window.addEventListener('scroll', () => {
+/* window.addEventListener('scroll', () => {
     const menu = document.querySelector('.menu');
     if (window.scrollY > 50) {
         menu.style.background = 'rgba(106, 50, 159, 0.95)';
@@ -113,7 +113,7 @@ window.addEventListener('scroll', () => {
         menu.style.background = 'rgba(255, 255, 255, 0.1)';
         menu.style.padding = '1rem 2rem';
     }
-});
+}); */
 
 
 

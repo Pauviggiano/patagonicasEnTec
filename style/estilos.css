@@ -84,10 +84,13 @@ body {
 #header {
     position: relative;
     width: 100%;
+    background-color: #333;
+    z-index: 1000;
+    
 }
 
 .menu {
-    position: fixed;
+    
     top: 0;
     left: 0;
     width: 100%;
@@ -108,11 +111,15 @@ body {
 }
 
 .menu .logo-box a img{
-    width: 200px;
+   /*  width: 200px;
     margin-top: 50px;
     margin-bottom: 10px;
     padding: 10px;
-    filter: drop-shadow(0px 0px 5px #ffffff);
+    filter: drop-shadow(0px 0px 5px #ffffff); */
+    height: 60px; /* Ajusta la altura del logo */
+    width: auto; /* Mantiene la proporción del logo */
+    max-width: 100%; /* Evita que el logo sobresalga */
+
 }
 
 .menu .list-container {
@@ -141,7 +148,7 @@ body {
 
 
 .menu .list-container .lists li a.active {
-    background: var(--violet);
+   /*  background: linear-gradient(45deg, var(--violet), var(--green)); */
     color: var(--white);
 }
 
