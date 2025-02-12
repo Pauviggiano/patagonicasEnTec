@@ -396,18 +396,30 @@ body {
 
 
 /** Formaciones gratuitas **/
-.our-projects {
+.section.formaciones {
     position: relative;
-    width: 100%;
-    height: 100%;
-    background: url(../imagenes/fondo.png);
+    /* width: 100%;
+    height: 100%; */
+    background: url(../imagenes/fondo.png) fixed center/cover;
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
     margin-top: 100px;
+    padding: 4rem;
+    
 }
 
-.our-projects .deg-background {
+.section.formaciones::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.section.formaciones .deg-background {
     position: absolute;
     top: 0;
     left: 0;
@@ -416,131 +428,157 @@ body {
     background: rgba(0, 0, 0, 0.5);
 }
 
-.our-projects .ejeZproject {
+.section.formaciones .ejeZproject {
     position: relative;
     width: 100%;
     height: 100%;
 
 }
 
-.our-projects .container-project {
+.section.formaciones .container-project {
     width: 100%;
     margin: auto;
     padding-top: 100px;
     padding-bottom: 100px;
 }
 
-.our-projects .container-project .project-title {
-    border: 2px solid #fff;
-    padding: 10px;
+/* Titulo de formaciones */
+.section__title-formaciones {
+    padding: 1rem;
+    width: 50%;
     text-align: center;
-    width: 50%;
-    margin: auto;
-}
-
-.our-projects .container-project .project-title h2 {
-    font-size: 40px;
-    color: #fff;
-    font-weight: normal;
-}
-
-.our-projects .container-project .project-title hr {
-    background: #fff;
-    width: 50%;
-    height: 3px;
-    margin: 10px auto;
-
-}
-
-.cards {
-    display: flex;
-    flex-wrap: wrap;
-    
-}
-
-.project-cards {
+    margin: 0 auto 2rem;
     position: relative;
-    width: 300px;
-    height: 350px;
-    margin-top: 50px;
+    z-index: 2;
+}
+
+.section__title-formaciones h2 {
+    font-size: 2.5rem;
+    color: var(--white);
+    font-weight: 400;
+    margin: 0;
+}
+
+.section__title-formaciones hr {
+    background: var(--white);
+    width: 80%;
+    height: 2px;
+    margin: 10px auto;
+    border: 0;
+
+}
+
+/* Contenedor tarjetas */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem; 
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    padding: 0 1rem;
     
 }
 
-.project-cards .face {
+.card-flip {
+    position: relative;
+    width: 100%;
+    height: 350px;
+    perspective: 1000px;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.card_face {
     position: absolute;
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
     border-radius: 10px;
     overflow: hidden;
-    transition: 0.5s;
+    display: flex;
+    flex-direction: column;
+    transition: var(--transition);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     
 
 }
 
-.project-cards .front {
+.card_face-front {
     transform: perspective(600px) rotateY(0deg);
-    box-shadow: 0 5px 10px var(--black);
+    box-shadow: 0 5px 10px var(--black); 
+    transform: rotateY(0deg);
 }
 
-.project-cards .front img {
-    position: absolute;
+.card_face-front img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.card_face-front:hover img {
+    transform: scale(1.05);
+}
+
+
+.card_face-back {
+    background: rgba(3, 35, 54, 0.224);
+    transform: rotateY(180deg);
+    padding: 1.5rem;
+    color: var(--white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 1.5rem;
+}
+
+.card-flip:hover .card_face-front {
+    transform: rotateY(-180deg);
+}
+
+.card-flip:hover .card_face-back {
+    transform: rotateY(0deg);
+}
+
+/* Contenido de la tarjeta */
+
+.card-image {
     width: 100%;
     height: 100%;
     object-fit: contain;
     cursor: pointer;
 }
-
-.project-cards .front h3 {
+.card_title--overlay {
+    font-size: 1.5rem;
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: 45px;
-    line-height: 45px;
-    color: var(--white);
-    background: rgba(0, 0, 0, .4);
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.299);
     text-align: center;
-}
-
-.project-cards .back {
-    transform: perspective(600px) rotateY(180deg);
-    background: rgba(3, 35, 54, 0.2);
-    padding: 15px;
     color: var(--white);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    text-align: center;
-    box-shadow: 0 2px 3px var(--black);
+    margin: 0;
 }
 
-.project-cards .back .link {
-    border-top: solid 1px var(--white);
-    height: 50px;
-    line-height: 50px;
-}
-
-.project-cards .back .link a {
+.btn--ghost {
+    border: 2px solid var(--white);
+    padding: 0.75rem 2rem;
+    background: transparent;
     color: var(--white);
+    transition: all 0.3s ease;
 }
 
-.project-cards .back h3 {
-    font-size: 30px;
-    margin-top: 20px;
-    letter-spacing: 2px;
+.btn--ghost:hover {
+    background: var(--white);
+    color: var(--black);
 }
 
-.project-cards .back p {
-    letter-spacing: 1px;
-}
 
-.project-cards:hover .front {
-    transform: perspective(600px) rotateY(180deg);
-}
-
-.project-cards:hover .back {
-    transform: perspective(600px) rotateY(360deg);
-}
 
 /** @media Querys **/
 
